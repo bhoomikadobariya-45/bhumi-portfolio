@@ -33,8 +33,10 @@ const Technologies = () => {
       title: "Backend & Database",
       description: "Logic-driven systems and data handling ",
       skills: [
+        { name: "Node.js", icon: "🟢", level: "Intermediate" },
+        { name: "MongoDB", icon: "🍃", level: "Intermediate" },
         { name: "PHP", icon: "🐘", level: "Intermediate" },
-        { name: "MySQL", icon: "🗄️", level: "Intermediate" },
+        { name: "MySQL", icon: "🗄️", level: "Proficient" },
         { name: "REST APIs", icon: "🌐", level: "Proficient" },
         { name: "C / Java", icon: "☕", level: "Academic" }
       ]

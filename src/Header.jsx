@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import avatar from "./assets/avatar.png";
 
 export default function Header({ isDark, onToggleTheme, onContactClick }) {
   const [active, setActive] = useState("Home");
@@ -60,8 +61,12 @@ export default function Header({ isDark, onToggleTheme, onContactClick }) {
           whileTap={{ scale: 0.95 }}
           className="flex items-center gap-3 cursor-none"
         >
-          <div className="h-10 w-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/20 rotate-3">
-            BD
+          <div className="h-10 w-10 rounded-xl bg-blue-50 flex items-center justify-center shadow-lg shadow-blue-500/20 overflow-hidden border-2 border-white dark:border-slate-800 relative">
+            <img 
+              src={avatar} 
+              alt="Bhoomika Avatar" 
+              className="w-full h-full object-cover" 
+            />
           </div>
           <span className="hidden sm:block font-black text-xl text-slate-900 dark:text-white tracking-tighter">
             Bhoomika

@@ -112,30 +112,30 @@ const colorClasses = {
     <motion.div
       key={i}
       whileHover={{ y: -4 }}
-      className="flex items-center gap-6 group"
+      className="flex items-center gap-4 md:gap-6 group"
     >
       <div
-        className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm group-hover:shadow-lg ${
+        className={`w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm group-hover:shadow-lg ${
           colorClasses[item.color]
         }`}
       >
-        <i className={`fas ${item.icon} text-xl group-hover:scale-110 transition-transform`}></i>
+        <i className={`fas ${item.icon} text-lg md:text-xl group-hover:scale-110 transition-transform`}></i>
       </div>
 
-      <div>
-        <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">
+      <div className="flex-1 min-w-0">
+        <p className="text-xs md:text-sm font-bold text-gray-400 uppercase tracking-widest mb-0.5 md:mb-1">
           {item.title}
         </p>
 
         {item.link ? (
           <a
             href={item.link}
-            className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+            className="block text-[15px] sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 break-all md:break-normal"
           >
             {item.value}
           </a>
         ) : (
-          <p className="text-xl font-bold text-gray-900 dark:text-white">
+          <p className="block text-[15px] sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white break-all md:break-normal">
             {item.value}
           </p>
         )}
@@ -188,10 +188,10 @@ const colorClasses = {
                 disabled={isSending}
                 whileHover={!isSending ? { scale: 1.05 } : {}}
                 whileTap={{ scale: 0.95 }}
-                className={`w-full py-5 rounded-2xl font-black text-white text-lg flex items-center justify-center gap-3 ${
+                className={`w-full py-5 rounded-2xl font-black text-white text-lg flex items-center justify-center gap-3 transition-colors ${
                   isSending
-                    ? "bg-gray-400"
-                    : "bg-linear-r from-gray-900 to-blue-600"
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-600/20"
                 }`}
               >
                 {isSending ? "Sending..." : "Send Message"}

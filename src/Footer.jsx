@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import avatar from "./assets/avatar.png";
 
 const Footer = () => {
   useEffect(() => {
@@ -41,8 +42,12 @@ const Footer = () => {
           {/* Column 1 */}
           <div className="space-y-6" data-aos="fade-up">
             <div className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white font-bold shadow-xl shadow-blue-500/20 rotate-3">
-                BD
+              <div className="h-12 w-12 rounded-2xl bg-blue-50 flex items-center justify-center shadow-xl shadow-blue-500/20 overflow-hidden border-2 border-white dark:border-slate-800">
+                <img 
+                  src={avatar} 
+                  alt="Bhoomika Avatar" 
+                  className="w-full h-full object-cover" 
+                />
               </div>
               <span className="font-black text-2xl tracking-tight text-slate-900 dark:text-white">
                 Bhoomika Dobariya
