@@ -120,10 +120,48 @@ export default function Header({ isDark, onToggleTheme, onContactClick }) {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2.5 rounded-xl bg-gray-100 dark:bg-slate-800 border"
           >
-            <i className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"}`} />
+            <i className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"} text-slate-600 dark:text-slate-300`} />
           </button>
         </div>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="lg:hidden absolute top-[calc(100%+1px)] left-0 w-full bg-white dark:bg-slate-900 shadow-xl border-t border-b border-gray-200 dark:border-slate-800 p-4"
+        >
+          <nav className="flex flex-col gap-2">
+            {menu.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => {
+                  setActive(item.name);
+                  setIsMenuOpen(false);
+                }}
+                className={`px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+                  active === item.name
+                    ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+                    : "text-slate-600 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800"
+                }`}
+              >
+                {item.name}
+              </a>
+            ))}
+            <button
+              onClick={() => {
+                if (onContactClick) onContactClick();
+                setIsMenuOpen(false);
+              }}
+              className="mt-2 w-full px-4 py-3 bg-gray-900 dark:bg-blue-600 text-white text-sm font-bold rounded-xl active:scale-95 transition-all text-center"
+            >
+              Let's Talk
+            </button>
+          </nav>
+        </motion.div>
+      )}
     </header>
   );
 }
